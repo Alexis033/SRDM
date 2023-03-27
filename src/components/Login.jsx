@@ -25,7 +25,7 @@ export const Login = () => {
     loginState(answer)
     setError(answer)
     if (answer !== null) handleShow()
-    else redirect('/')
+    else redirect('/SRDM')
   }
 
   return (
@@ -40,7 +40,7 @@ export const Login = () => {
             <div className='col bg-white rounded-end'>
               <div className='text-end mt-2'>
                 <img
-                  src='../img/logo.png'
+                  src='./img/logo.png'
                   width='100px'
                   alt='Logo de la compañia'
                   className='rounded-pill'
