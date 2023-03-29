@@ -91,7 +91,10 @@ export const InnerApp = () => {
             </FormStudent>
           }
         />
-        <Route path='/UploadDocuments' element={<UploadDocument />} />
+        <Route
+          path='/UploadDocuments'
+          element={<UploadDocument studentId={studentInfo.id} />}
+        />
         <Route
           path='*'
           element={
