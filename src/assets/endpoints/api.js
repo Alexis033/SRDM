@@ -17,3 +17,5 @@ export const URL_UPDATE_STUDENT = `${DOMINIO}student/update/`
 export const URL_LIST_DOCUMENTS = `${DOMINIO}documentList/`
 
 export const URL_UPDATE_DOCUMENT = `${DOMINIO}files/`
+
+export const URL_DOCUMENT_STUDENT = `${DOMINIO}documents/`
