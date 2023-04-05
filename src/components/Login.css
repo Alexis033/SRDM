@@ -1,12 +1,3 @@
-#fondo {
-  background: #fff759;
-  background: linear-gradient(to right, #fcc05f, #fff759);
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  position: fixed;
-}
 #image-container {
   background-image: url(../img/fondo.png);
   background-repeat: no-repeat;

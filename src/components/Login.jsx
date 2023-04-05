@@ -30,14 +30,14 @@ export const Login = () => {
 
   return (
     <>
-      <div id='fondo'>
-        <main className='container w-75 bg-primary mt-5 rounded shadow'>
+      <div id='fondo' className='p-5 h-100'>
+        <main className='container w-75 rounded shadow'>
           <div className='row align-items-stretch'>
             <div
               id='image-container'
-              className='col bg d-none d-md-block col-md-5 col-lg-5 col-xl-6 rounded-start'
+              className='col bg d-none d-md-block col-md-5 col-lg-5 col-xl-6 rounded'
             />
-            <div className='col bg-white rounded-end'>
+            <div className='col bg-white rounded'>
               <div className='text-end mt-2'>
                 <img
                   src='./img/logo.png'
