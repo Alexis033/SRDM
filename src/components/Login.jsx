@@ -30,7 +30,7 @@ export const Login = () => {
 
   return (
     <>
-      <div id='fondo' className='p-5 h-100'>
+      <div className='d-flex align-items-center pt-5 pb-5 h-100'>
         <main className='container w-75 rounded shadow'>
           <div className='row align-items-stretch'>
             <div
