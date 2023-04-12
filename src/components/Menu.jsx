@@ -25,7 +25,7 @@ export const Menu = () => {
             id='MenuNavegacion'
             className='collapse navbar-collapse position-relative'
           >
-            <ul className='navbar-nav ms-3'>
+            <ul className='navbar-nav'>
               {userInfo.id_rol === 2 && (
                 <>
                   <li className='nav-item'>
