@@ -1,3 +1,9 @@
+.fondo {
+  background: #fff759;
+  background: linear-gradient(to right, #fcc05f, #fff759);
+  min-height: 100vh;
+}
+
 #image-container {
   background-image: url(../img/fondo.png);
   background-repeat: no-repeat;

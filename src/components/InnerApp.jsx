@@ -1,4 +1,5 @@
 import { Menu } from './Menu'
+import { Footer } from './Footer'
 import { FormStudent } from './FormStudent'
 // import { ListPendingDocuments } from './ListPendingDocuments'
 import { ListStudents } from './ListStudents'
@@ -111,7 +112,7 @@ export const InnerApp = () => {
           }
         />
       </Routes>
-
+      <Footer />
       <ModalStatic
         title='Información'
         content={message}

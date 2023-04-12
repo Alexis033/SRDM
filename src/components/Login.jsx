@@ -29,81 +29,80 @@ export const Login = () => {
   }
 
   return (
-    <>
-      <div className='d-flex align-items-center pt-5 pb-5 h-100'>
-        <main className='container w-75 rounded shadow'>
-          <div className='row align-items-stretch'>
-            <div
-              id='image-container'
-              className='col bg d-none d-md-block col-md-5 col-lg-5 col-xl-6 rounded'
-            />
-            <div className='col bg-white rounded'>
-              <div className='text-end mt-2'>
-                <img
-                  src='./img/logo.png'
-                  width='100px'
-                  alt='Logo de la compañia'
-                  className='rounded-pill'
+    <div className='d-flex align-items-center pt-5 pb-5 fondo'>
+      <main className='container w-75 rounded shadow'>
+        <div className='row align-items-stretch'>
+          <div
+            id='image-container'
+            className='col bg d-none d-md-block col-md-5 col-lg-5 col-xl-6 rounded'
+          />
+          <div className='col bg-white rounded'>
+            <div className='text-end mt-2'>
+              <img
+                src='./img/logo.png'
+                width='100px'
+                alt='Logo de la compañia'
+                className='rounded-pill'
+              />
+            </div>
+
+            <h2 className='fw-bold text-center py-5'>Bienvenido</h2>
+
+            <form
+              id='login'
+              className='row flex-column'
+              method='post'
+              autoComplete='off'
+              onSubmit={handleSubmit}
+            >
+              <div className='col mb-3'>
+                <label htmlFor='email' className='form-label'>
+                  Correo electrónico
+                </label>
+                <input
+                  type='email'
+                  id='email'
+                  className='form-control'
+                  name='email'
+                  required
+                  autoComplete='off'
+                  pattern='^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
+                />
+              </div>
+              <div className='col mb-5'>
+                <label htmlFor='password' className='form-label'>
+                  Contraseña
+                </label>
+                <input
+                  type='password'
+                  id='password'
+                  className='form-control'
+                  name='password'
+                  required
+                  autoComplete='off'
                 />
               </div>
 
-              <h2 className='fw-bold text-center py-5'>Bienvenido</h2>
-
-              <form
-                id='login'
-                className='row flex-column'
-                method='post'
-                autoComplete='off'
-                onSubmit={handleSubmit}
-              >
-                <div className='col mb-3'>
-                  <label htmlFor='email' className='form-label'>
-                    Correo electrónico
-                  </label>
-                  <input
-                    type='email'
-                    id='email'
-                    className='form-control'
-                    name='email'
-                    required
-                    autoComplete='off'
-                    pattern='^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$'
-                  />
-                </div>
-                <div className='col mb-5'>
-                  <label htmlFor='password' className='form-label'>
-                    Contraseña
-                  </label>
-                  <input
-                    type='password'
-                    id='password'
-                    className='form-control'
-                    name='password'
-                    required
-                    autoComplete='off'
-                  />
-                </div>
-
-                <div className='col-sm-7 mx-auto mb-5 d-flex justify-content-center '>
-                  <button
-                    type='submit'
-                    id='btn-session'
-                    className='btn btn-primary'
-                  >
-                    Iniciar Sesión
-                  </button>
-                </div>
-              </form>
-            </div>
+              <div className='col-sm-7 mx-auto mb-5 d-flex justify-content-center '>
+                <button
+                  type='submit'
+                  id='btn-session'
+                  className='btn btn-primary'
+                >
+                  Iniciar Sesión
+                </button>
+              </div>
+            </form>
           </div>
-        </main>
-      </div>
+        </div>
+      </main>
+
       <ModalStatic
         title='Error'
         content={error}
         show={show}
         handleClose={handleClose}
       />
-    </>
+    </div>
   )
 }

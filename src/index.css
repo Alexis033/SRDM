@@ -1,4 +1,9 @@
 body {
-  background: #fff759;
-  background: linear-gradient(to right, #fcc05f, #fff759);
+  background: #fafafa;
+}
+#root {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
 }
