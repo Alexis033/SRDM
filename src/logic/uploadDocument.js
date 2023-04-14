@@ -1,5 +1,5 @@
 import { URL_UPDATE_DOCUMENT } from '../assets/endpoints/api'
-
+// función para subir documentos al servidor
 export async function uploadDocument ({ studentId, filename, newDocument }) {
   const token = window.localStorage.getItem('token')
   const headerList = {

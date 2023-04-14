@@ -1,7 +1,7 @@
 import { Menu } from './Menu'
 import { Footer } from './Footer'
 import { FormStudent } from './FormStudent'
-// import { ListPendingDocuments } from './ListPendingDocuments'
+import { ListPendingDocuments } from './ListPendingDocuments'
 import { ListStudents } from './ListStudents'
 import { UploadDocument } from './UploadDocument'
 import { ValidationDocumentsStudent } from './ValidationDocumentsStudent'
@@ -10,11 +10,12 @@ import { useContext } from 'react'
 import { ModalContext } from '../context/modal'
 import { ModalStatic } from './ModalStatic'
 import { createUserAndStudent } from '../logic/createUserAndStudent.js'
-import { useStudentInfo } from '../hooks/useStudentInfo.js'
 import { updateUserAndStudent } from '../logic/updateUserAndStudent'
+import { useStudentInfo } from '../hooks/useStudentInfo.js'
 import { useUserInfo } from '../hooks/useUserInfo'
 import { useUserContext } from '../hooks/useUserContext'
 import { Routes, Route } from 'react-router-dom'
+import { getDocumentServer } from '../logic/getDocumentServer'
 
 export const InnerApp = () => {
   useUserInfo()
@@ -23,8 +24,14 @@ export const InnerApp = () => {
   const { userInfo, studentInfo } = useUserContext()
   const { show, handleClose, message } = useContext(ModalContext)
 
-  // console.log(userInfo)
-  // console.log(studentInfo)
+  console.log(userInfo)
+  console.log(studentInfo)
+
+  const x = async () => {
+    const a = await getDocumentServer()
+    console.log(a)
+    return a
+  }
 
   return (
     <>
@@ -96,6 +103,27 @@ export const InnerApp = () => {
           path='/UploadDocuments'
           element={<UploadDocument studentId={studentInfo.id} />}
         />
+        <Route
+          path='/pendingDocuments'
+          element={<ListPendingDocuments studentId={studentInfo.id} />}
+        />
+        **
+        <Route
+          path='/pendingDocuments/:url'
+          element={
+            <div
+              style={{
+                marginTop: '100px',
+                marginBottom: '50px',
+                fontSize: '50px'
+              }}
+              onClick={x}
+            >
+              p
+            </div>
+          }
+        />
+        **
         <Route
           path='*'
           element={

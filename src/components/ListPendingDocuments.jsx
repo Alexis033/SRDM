@@ -1,4 +1,13 @@
-export const ListPendingDocuments = ({ documentList }) => {
+import { useDocumentList } from '../hooks/useDocumentList'
+import { getDocumentsStudent } from '../logic/getDocumentsStudent'
+import { useFetch } from '../hooks/useFetch'
+import { Link } from 'react-router-dom'
+import { getDocumentServer } from '../logic/getDocumentServer'
+
+export const ListPendingDocuments = ({ studentId }) => {
+  const { documentList } = useDocumentList()
+  const [studentDocuments, error] = useFetch(getDocumentsStudent, studentId)
+  console.log(error)
   return (
     <div className='container' style={{ marginTop: '100px' }}>
       <div className='row'>
@@ -12,47 +21,52 @@ export const ListPendingDocuments = ({ documentList }) => {
               </tr>
             </thead>
             <tbody>
-              {/* {documentList.map((document) => {
-                  return (
-                    <tr key={document.id}>
-                      <td>{document.nombre_documento}</td>
-                      <td>
-                        <a href='#'>Archivo</a>
-                      </td>
-                      <td>estado</td>
-                    </tr>
-                  )
-                })} */}
+              {documentList.map((document) => {
+                const documentStudent = studentDocuments?.find(
+                  (documentStudent, index) => {
+                    return documentStudent.id_lista_documentos === document.id
+                  }
+                )
+                console.log(documentStudent)
+                return (
+                  <tr key={document.id}>
+                    <td>{document.nombre_documento}</td>
+                    <td>
+                      {error
+                        ? (
+                            'Error al cargar archivo'
+                          )
+                        : (
+                          <a
+                            href='#'
+                            onClick={(event) => {
+                              event.preventDefault()
+                              if (documentStudent?.url_documento) {
+                                getDocumentServer(documentStudent.url_documento)
+                              }
+                            }}
+                          >
+                            {documentStudent?.url_documento
+                              ? 'Documento'
+                              : 'No hay Documento'}
+                          </a>
+                          )}
+                    </td>
 
-              <tr>
-                <td>Documento 1</td>
-                <td>
-                  <a href='#'>Archivo</a>
-                </td>
-                <td />
-              </tr>
-              <tr>
-                <td>Documento 2</td>
-                <td>
-                  <a href='#'>Archivo</a>
-                </td>
-                <td />
-              </tr>
-              <tr>
-                <td>Documento 3</td>
-                <td>
-                  <a href='#'>Archivo</a>
-                </td>
-                <td />
-              </tr>
+                    <td>
+                      {documentStudent?.estado == 1 ? 'Entregado' : 'Pendiente'}
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>
       </div>
       <div className='d-grid m-3'>
-        <button type='button' className='btn btn-primary mx-auto'>
+        <Link className='btn btn-primary mx-auto' to='/uploadDocuments'>
           Regresar a cargar documentos
-        </button>
+        </Link>
       </div>
     </div>
   )

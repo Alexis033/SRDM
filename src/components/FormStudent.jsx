@@ -10,7 +10,7 @@ export const FormStudent = ({ userData, functionFetch, children }) => {
       style={{ marginTop: '100px', marginBottom: '50px' }}
     >
       <form
-        className='row g-3 justify-content-center'
+        className='row gap-3 justify-content-center'
         id='formulario-información-estudiante'
         onSubmit={handleSubmit}
       >

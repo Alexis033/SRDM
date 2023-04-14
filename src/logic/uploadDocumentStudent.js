@@ -1,5 +1,5 @@
 import { URL_DOCUMENT_STUDENT } from '../assets/endpoints/api'
-
+// finción para asociar documentos en el servidor a un alumno en la base de datos
 export async function uploadDocumentStudent ({
   idStudent,
   idDocument,

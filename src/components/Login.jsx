@@ -5,11 +5,15 @@ import './Login.css'
 import { useShowModal } from '../hooks/useShowModal'
 import { useLoginState } from '../hooks/useLoginState'
 import { redirect } from 'react-router-dom'
+import { useStudentInfo } from '../hooks/useStudentInfo.js'
+import { useUserInfo } from '../hooks/useUserInfo'
 
-export const Login = () => {
+export function Login () {
   const [error, setError] = useState('')
   const { show, handleShow, handleClose } = useShowModal()
   const { loginState } = useLoginState()
+  useUserInfo()
+  useStudentInfo()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
