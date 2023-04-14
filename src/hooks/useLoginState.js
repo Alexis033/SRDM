@@ -1,8 +1,10 @@
 import { useEffect } from 'react'
 import { useLoginContext } from './useLoginContext'
+import { useUserContext } from './useUserContext'
 
 export function useLoginState () {
   const { isLogin, setIsLogin } = useLoginContext()
+  const { setUserInfo, setStudentInfo } = useUserContext()
 
   useEffect(() => {
     if (isLogin === true) {
@@ -19,6 +21,8 @@ export function useLoginState () {
       setIsLogin(true)
     } else {
       setIsLogin(false)
+      setUserInfo({})
+      setStudentInfo({})
       window.localStorage.removeItem('token')
     }
   }

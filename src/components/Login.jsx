@@ -4,19 +4,15 @@ import { ModalStatic } from './ModalStatic'
 import './Login.css'
 import { useShowModal } from '../hooks/useShowModal'
 import { useLoginState } from '../hooks/useLoginState'
-import { useUserContext } from '../hooks/useUserContext'
 import { redirect } from 'react-router-dom'
 
 export const Login = () => {
   const [error, setError] = useState('')
   const { show, handleShow, handleClose } = useShowModal()
   const { loginState } = useLoginState()
-  const { setUserInfo, setStudentInfo } = useUserContext()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    setUserInfo({})
-    setStudentInfo({})
 
     const { email, password } = Object.fromEntries(
       new window.FormData(event.target)
