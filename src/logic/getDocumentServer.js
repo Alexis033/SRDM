@@ -6,22 +6,23 @@ export async function getDocumentServer (urlFile) {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 
-  urlFile = urlFile.replaceAll(' ', '%20')
-  urlFile = urlFile.replaceAll('\\', '%5C')
+  let file = urlFile.replaceAll(' ', '%20')
+  file = urlFile.replaceAll('\\', '%5C')
 
-  const response = await fetch(`${URL_UPDATE_DOCUMENT}${urlFile}`, {
+  const response = await fetch(`${URL_UPDATE_DOCUMENT}${file}`, {
     method: 'GET',
     headers: headersList
   })
   const blob = await response.blob()
 
-  // Crea un enlace de descarga para el archivo Blob
   const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url
-  a.download = 'Documento de identidad.pdf'
-  a.click()
+  window.open(url, '_blank')
+  // Crea un enlace de descarga para el archivo Blob
+  // const nameFile = urlFile.split('\\').at(-1)
+  // const a = document.createElement('a')
+  // a.href = url
+  // a.download = nameFile
+  // a.click()
 
-  // Elimina el objeto Blob y el enlace de descarga
   URL.revokeObjectURL(url)
 }
