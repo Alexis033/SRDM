@@ -4,6 +4,11 @@ import { useFetch } from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import { getDocumentServer } from '../logic/getDocumentServer'
 
+/**
+ ListPendingDocuments - Displays a table of pending documents for a given student
+ param {Object} studentId - The id of the student whose documents will be displayed
+ */
+
 export const ListPendingDocuments = ({ studentId }) => {
   const { documentList } = useDocumentList()
   const [studentDocuments, error] = useFetch(getDocumentsStudent, studentId)

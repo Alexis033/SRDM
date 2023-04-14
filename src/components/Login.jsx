@@ -6,6 +6,10 @@ import { useShowModal } from '../hooks/useShowModal'
 import { useLoginState } from '../hooks/useLoginState'
 import { useNavigate } from 'react-router-dom'
 
+/**
+ Function for handling login functionality and displaying login form.
+ returns the login form JSX and handles login functionality
+ */
 export function Login () {
   const [error, setError] = useState('')
   const { show, handleShow, handleClose } = useShowModal()

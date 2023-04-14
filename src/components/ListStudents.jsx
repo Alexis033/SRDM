@@ -5,6 +5,12 @@ import { useSearchStudent } from '../hooks/useSearchStudent'
 import { Pagination } from './Pagination'
 import { SearchBar } from './SearchBar'
 
+/**
+ ListStudents is a React functional component that displays a list of students and
+ provides options for searching,
+ pagination, and selecting students for enrollment or deletion.
+ */
+
 export const ListStudents = () => {
   const studentsPerPage = 30
 

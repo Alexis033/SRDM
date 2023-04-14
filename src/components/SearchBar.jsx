@@ -1,6 +1,10 @@
 import { useRef } from 'react'
 import { InputGroup, FormControl, Button } from 'react-bootstrap'
 
+/**
+Generates a search bar component with a form that allows users to input a search query and submit it.
+param {Function} handleSearch - The callback function that handles the search logic based on the user's input.
+*/
 export function SearchBar ({ handleSearch }) {
   const searchTextRef = useRef()
 

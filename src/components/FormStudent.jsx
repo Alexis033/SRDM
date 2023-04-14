@@ -1,5 +1,11 @@
 import { useHandleSubmitForm } from '../hooks/useHandleSubmitForm.js'
 
+/**
+This function generates a React component that renders a form to input student information. *
+param {Object} userData - An object containing the initial values for the input fields.
+param {function} functionFetch - A function to fetch data from an external API.
+param {ReactNode} children - The content to render inside the submit button.
+ */
 export const FormStudent = ({ userData, functionFetch, children }) => {
   const { handleSubmit } = useHandleSubmitForm({
     functionFetch

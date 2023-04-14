@@ -1,3 +1,9 @@
+/**
+Returns a pagination component with clickable buttons for each page
+param {number} currentPage - The current active page
+param {number} totalPages - The total number of pages
+param {function} onPageChange - The function to call when a page is clicked
+*/
 export function Pagination ({ currentPage, totalPages, onPageChange }) {
   const pages = Array.from({ length: totalPages }, (_, i) => i + 1)
 

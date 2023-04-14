@@ -16,6 +16,11 @@ import { useUserInfo } from '../hooks/useUserInfo'
 import { useUserContext } from '../hooks/useUserContext'
 import { Routes, Route } from 'react-router-dom'
 
+/**
+ InnerApp component that renders the main application and handles routing.
+ Uses user and student context, modal context, and various routes for different pages.
+ */
+
 export const InnerApp = () => {
   useUserInfo()
   useStudentInfo()

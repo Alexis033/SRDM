@@ -1,7 +1,11 @@
 import Button from 'react-bootstrap/Button'
 import { useDocumentList } from '../hooks/useDocumentList'
-
-export const UploadDocument = ({ studentId }) => {
+/**
+Uploads a document for a given student.
+param {Object} props - The props object.
+param {string} props.studentId - The ID of the student.
+ */
+export function UploadDocument ({ studentId }) {
   const { documentList, handleSubmitList } = useDocumentList(studentId)
   return (
     <div className='container' style={{ marginTop: '100px' }}>

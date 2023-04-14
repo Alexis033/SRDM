@@ -2,6 +2,8 @@ import { useLoginState } from '../hooks/useLoginState'
 import { useUserContext } from '../hooks/useUserContext'
 import { Link } from 'react-router-dom'
 
+/** The Menu function is a React component that returns a navigation menu based
+on the user's role. */
 export const Menu = () => {
   const { loginState } = useLoginState()
   const { userInfo } = useUserContext()
