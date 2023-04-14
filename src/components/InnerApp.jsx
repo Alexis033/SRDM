@@ -15,7 +15,6 @@ import { useStudentInfo } from '../hooks/useStudentInfo.js'
 import { useUserInfo } from '../hooks/useUserInfo'
 import { useUserContext } from '../hooks/useUserContext'
 import { Routes, Route } from 'react-router-dom'
-import { getDocumentServer } from '../logic/getDocumentServer'
 
 export const InnerApp = () => {
   useUserInfo()
@@ -26,12 +25,6 @@ export const InnerApp = () => {
 
   console.log(userInfo)
   console.log(studentInfo)
-
-  const x = async () => {
-    const a = await getDocumentServer()
-    console.log(a)
-    return a
-  }
 
   return (
     <>
@@ -107,23 +100,6 @@ export const InnerApp = () => {
           path='/pendingDocuments'
           element={<ListPendingDocuments studentId={studentInfo.id} />}
         />
-        **
-        <Route
-          path='/pendingDocuments/:url'
-          element={
-            <div
-              style={{
-                marginTop: '100px',
-                marginBottom: '50px',
-                fontSize: '50px'
-              }}
-              onClick={x}
-            >
-              p
-            </div>
-          }
-        />
-        **
         <Route
           path='*'
           element={

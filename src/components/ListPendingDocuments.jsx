@@ -42,7 +42,6 @@ export const ListPendingDocuments = ({ studentId }) => {
                             onClick={(event) => {
                               event.preventDefault()
                               if (documentStudent?.url_documento) {
-                                console.log(documentStudent.url_documento)
                                 getDocumentServer(documentStudent.url_documento)
                               }
                             }}

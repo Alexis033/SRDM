@@ -4,16 +4,13 @@ import { ModalStatic } from './ModalStatic'
 import './Login.css'
 import { useShowModal } from '../hooks/useShowModal'
 import { useLoginState } from '../hooks/useLoginState'
-import { redirect } from 'react-router-dom'
-import { useStudentInfo } from '../hooks/useStudentInfo.js'
-import { useUserInfo } from '../hooks/useUserInfo'
+import { useNavigate } from 'react-router-dom'
 
 export function Login () {
   const [error, setError] = useState('')
   const { show, handleShow, handleClose } = useShowModal()
   const { loginState } = useLoginState()
-  useUserInfo()
-  useStudentInfo()
+  const navigate = useNavigate()
 
   const handleSubmit = async (event) => {
     event.preventDefault()
@@ -25,7 +22,9 @@ export function Login () {
     loginState(answer)
     setError(answer)
     if (answer !== null) handleShow()
-    else redirect('/SRDM')
+    else {
+      navigate('/')
+    }
   }
 
   return (
@@ -96,7 +95,6 @@ export function Login () {
           </div>
         </div>
       </main>
-
       <ModalStatic
         title='Error'
         content={error}
