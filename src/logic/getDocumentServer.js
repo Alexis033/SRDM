@@ -1,18 +1,18 @@
 import { URL_UPDATE_DOCUMENT } from '../assets/endpoints/api.js'
-export async function getDocumentServer () {
+export async function getDocumentServer (urlFile) {
   const token = window.localStorage.getItem('token')
   const headersList = {
     Authorization: `Bearer ${token}`,
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 
-  const response = await fetch(
-    `${URL_UPDATE_DOCUMENT}files%5C10%5CDocumento%20de%20identidad.pdf`,
-    {
-      method: 'GET',
-      headers: headersList
-    }
-  )
+  urlFile = urlFile.replaceAll(' ', '%20')
+  urlFile = urlFile.replaceAll('\\', '%5C')
+
+  const response = await fetch(`${URL_UPDATE_DOCUMENT}${urlFile}`, {
+    method: 'GET',
+    headers: headersList
+  })
   const blob = await response.blob()
 
   // Crea un enlace de descarga para el archivo Blob
