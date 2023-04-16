@@ -10,7 +10,6 @@ import { SearchBar } from './SearchBar'
  provides options for searching,
  pagination, and selecting students for enrollment or deletion.
  */
-
 export const ListStudents = () => {
   const studentsPerPage = 30
 
@@ -42,6 +41,14 @@ export const ListStudents = () => {
               </tr>
             </thead>
             <tbody>
+              {listStudents.length === 0 && (
+                <tr className='text-center'>
+                  <td />
+                  <td />
+                  <td />
+                  <td>Cargando estudiantes...</td>
+                </tr>
+              )}
               {listStudentsToRender?.map((student) => {
                 return (
                   <tr key={student.id}>
