@@ -1,15 +1,15 @@
 import { useState } from 'react'
 
 export function usePagination ({ elementsInPage, totalElements }) {
-  const [currentPage, setCurrentPage] = useState(0)
+  const [currentPage, setCurrentPage] = useState(1)
   const elementsPerPage = elementsInPage
 
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage)
   }
   const elementsToRender = totalElements.slice(
-    currentPage * elementsPerPage,
-    (currentPage + 1) * elementsPerPage
+    (currentPage - 1) * elementsPerPage,
+    currentPage * elementsPerPage
   )
 
   return { handlePageChange, elementsToRender, currentPage }

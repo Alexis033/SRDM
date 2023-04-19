@@ -11,7 +11,7 @@ import { SearchBar } from './SearchBar'
  pagination, and selecting students for enrollment or deletion.
  */
 export const ListStudents = () => {
-  const studentsPerPage = 30
+  const studentsPerPage = 20
 
   const { listStudents } = useGetStudents()
   const { handlePageChange, elementsToRender, currentPage } = usePagination({
