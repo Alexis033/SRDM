@@ -9,6 +9,11 @@ export function UploadDocument ({ studentId }) {
   const { documentList, handleSubmitList } = useDocumentList(studentId)
   return (
     <div className='container' style={{ marginTop: '100px' }}>
+      <h2 className='text-center mb-4'>Cargar Documentos</h2>
+      <p>
+        * Todos los archivos deben ser PDF
+        <br />* Puede cargar solo los archivos que necesite
+      </p>
       <div className='row'>
         <div className='col'>
           <form

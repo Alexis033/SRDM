@@ -60,10 +60,9 @@ export const ListStudents = () => {
                     <td className='text-start'>
                       <Link
                         className='text-decoration-none text-dark'
-                        to={`${student.correo}/${student.nombres.concat(
-                          ' ',
-                          student.apellidos
-                        )}`}
+                        to={`${student.id}/${
+                          student.correo
+                        }/${student.nombres.concat(' ', student.apellidos)}`}
                       >
                         {student.apellidos} {student.nombres}
                       </Link>

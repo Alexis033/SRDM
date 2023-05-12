@@ -9,11 +9,11 @@ export function useDocumentList (studentId) {
   const { handleShow, setMessage } = useContext(ModalContext)
 
   useEffect(() => {
-    const fetchFuntion = async () => {
+    const fetchFunction = async () => {
       const listDocuments = await getListDocuments()
       setDocumentList(listDocuments)
     }
-    fetchFuntion()
+    fetchFunction()
   }, [])
 
   const handleSubmitList = (event) => {
@@ -41,8 +41,7 @@ export function useDocumentList (studentId) {
           newDocument: file.file
         })
         const urlDocument = response.file_location
-        console.log(response)
-        console.log(urlDocument)
+
         if (response === '') {
           tempMessage += `No pudo cargarse documento para: ${file.fileName}.\n`
         } else {
@@ -51,9 +50,9 @@ export function useDocumentList (studentId) {
             idDocument: file.id,
             urlDocument
           })
-          console.log(responseDB)
+
           if (responseDB.detail) {
-            tempMessage += `No pudo cargarse documento para: ${file.fileName}.\n`
+            tempMessage += `${responseDB.detail}, ha modificado: ${file.fileName}.\n`
           } else {
             tempMessage += `Documento subido exitosamente para: ${file.fileName}.\n`
           }

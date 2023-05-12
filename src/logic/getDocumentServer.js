@@ -6,8 +6,9 @@ export async function getDocumentServer (urlFile) {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 
-  let file = urlFile.replaceAll(' ', '%20')
-  file = urlFile.replaceAll('\\', '%5C')
+  let file = urlFile
+  file = file.replaceAll(' ', '%20')
+  file = file.replaceAll('\\', '%5C')
 
   const response = await fetch(`${URL_UPDATE_DOCUMENT}${file}`, {
     method: 'GET',

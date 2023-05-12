@@ -12,9 +12,10 @@ import { getDocumentServer } from '../logic/getDocumentServer'
 export const ListPendingDocuments = ({ studentId }) => {
   const { documentList } = useDocumentList()
   const [studentDocuments, error] = useFetch(getDocumentsStudent, studentId)
-  console.log(error)
+
   return (
     <div className='container' style={{ marginTop: '100px' }}>
+      <h2 className='text-center mb-4'>Estado de Documentos</h2>
       <div className='row'>
         <div className='col'>
           <table className='table table-hover border border-5 text-center caption-top'>
@@ -32,7 +33,8 @@ export const ListPendingDocuments = ({ studentId }) => {
                     return documentStudent.id_lista_documentos === document.id
                   }
                 )
-                console.log(documentStudent)
+                const documentDB = documentStudent?.url_documento
+
                 return (
                   <tr key={document.id}>
                     <td>{document.nombre_documento}</td>
@@ -43,7 +45,7 @@ export const ListPendingDocuments = ({ studentId }) => {
                           )
                         : (
                           <a
-                            href='#'
+                            href={!documentDB ? undefined : '#'}
                             onClick={(event) => {
                               event.preventDefault()
                               if (documentStudent?.url_documento) {
@@ -59,7 +61,11 @@ export const ListPendingDocuments = ({ studentId }) => {
                     </td>
 
                     <td>
-                      {documentStudent?.estado == 1 ? 'Entregado' : 'Pendiente'}
+                      {documentStudent?.estado == 1
+                        ? 'Entregado'
+                        : documentStudent?.estado == 2
+                          ? 'Aprobado'
+                          : 'Pendiente'}
                     </td>
                   </tr>
                 )

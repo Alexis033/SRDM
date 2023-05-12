@@ -27,6 +27,7 @@ export async function uploadDocument ({ studentId, filename, newDocument }) {
     }
     return data
   } catch (err) {
+    console.log(err)
     return ''
   }
 }

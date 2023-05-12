@@ -28,8 +28,8 @@ export const InnerApp = () => {
   const { userInfo, studentInfo } = useUserContext()
   const { show, handleClose, message } = useContext(ModalContext)
 
-  console.log(userInfo)
-  console.log(studentInfo)
+  // console.log(userInfo)
+  // console.log(studentInfo)
 
   return (
     <>
@@ -59,7 +59,7 @@ export const InnerApp = () => {
         />
         **
         <Route
-          path='/listStudents/:mail/:name'
+          path='/listStudents/:id/:mail/:name'
           element={<ValidationDocumentsStudent />}
         />
         **

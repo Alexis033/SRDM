@@ -1,9 +1,10 @@
 import { URL_DOCUMENT_STUDENT } from '../assets/endpoints/api'
-// función para asociar documentos en el servidor a un alumno en la base de datos
-export async function uploadDocumentStudent ({
+
+export async function updateDocumentStudent ({
   idStudent,
   idDocument,
-  urlDocument
+  state,
+  urlDocument = undefined
 }) {
   const token = window.localStorage.getItem('token')
   const headerList = {
@@ -15,22 +16,25 @@ export async function uploadDocumentStudent ({
   const body = {
     id_estudiante: idStudent,
     id_lista_documentos: idDocument,
-    estado: 1,
-    url_documento: urlDocument
+    estado: state
   }
+  if (urlDocument !== undefined) {
+    body.url_documento = urlDocument
+  }
+
   try {
     const response = await fetch(URL_DOCUMENT_STUDENT, {
-      method: 'POST',
+      method: 'PUT',
       headers: headerList,
       body: JSON.stringify(body)
     })
 
-    const document = await response.json()
+    const documentNewData = await response.json()
 
     if (!response.ok) {
-      return document
+      return documentNewData
     }
-    return document
+    return documentNewData
   } catch (err) {
     console.log(err)
     return err
