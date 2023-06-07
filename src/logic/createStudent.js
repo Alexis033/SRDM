@@ -16,7 +16,7 @@ export async function createStudent ({ formData }) {
     apellidos: surname,
     documento_identidad: parseInt(documentId),
     edad: parseInt(age),
-    telefono: parseInt(telNumber)
+    telefono: telNumber
   }
   try {
     const response = await fetch(URL_STUDENT, {

@@ -15,8 +15,9 @@ export async function updateStudent ({ formData }) {
     apellidos: surname,
     documento_identidad: parseInt(documentId),
     edad: parseInt(age),
-    telefono: parseInt(telNumber)
+    telefono: telNumber
   }
+  // console.log(body.telefono)
   try {
     const response = await fetch(`${URL_UPDATE_STUDENT}${email}`, {
       method: 'PUT',

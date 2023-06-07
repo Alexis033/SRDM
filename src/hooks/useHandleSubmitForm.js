@@ -9,7 +9,6 @@ export function useHandleSubmitForm ({ functionFetch }) {
   const handleSubmit = async (event) => {
     event.preventDefault()
     const formData = Object.fromEntries(new window.FormData(event.target))
-    // console.log(formData)
     const { newStudent } = await functionFetch({ formData })
     if (newStudent.detail) {
       setMessage(newStudent.detail)
