@@ -1,4 +1,4 @@
-export const DOMINIO = 'http://127.0.0.1:8000/'
+export const DOMINIO = 'https://srdm-1-m9433676.deta.app/'
 
 export const URL_LOGIN = `${DOMINIO}login/`
 

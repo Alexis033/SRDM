@@ -4,6 +4,7 @@ import { usePagination } from '../hooks/usePagination'
 import { useSearchStudent } from '../hooks/useSearchStudent'
 import { Pagination } from './Pagination'
 import { SearchBar } from './SearchBar'
+import { useState } from 'react'
 
 /**
  ListStudents is a React functional component that displays a list of students and
@@ -13,6 +14,7 @@ import { SearchBar } from './SearchBar'
 export const ListStudents = () => {
   const studentsPerPage = 20
 
+  const [mails, setMails] = useState([])
   const { listStudents } = useGetStudents()
   const { handlePageChange, elementsToRender, currentPage } = usePagination({
     elementsInPage: studentsPerPage,
@@ -24,6 +26,22 @@ export const ListStudents = () => {
     ? studentSearch
     : elementsToRender
 
+  const handleCheckbox = (event, student) => {
+    if (event.target.checked) {
+      const newMailsSet = new Set([...mails, student.correo])
+      const newMails = [...newMailsSet]
+
+      setMails(newMails)
+      console.log(newMails)
+    } else {
+      const newMailsSet = new Set(
+        mails.filter((mail) => mail !== student.correo)
+      )
+      const newMails = [...newMailsSet]
+      setMails(newMails)
+      console.log(newMails)
+    }
+  }
   return (
     <div className='container' style={{ marginTop: '100px' }}>
       <div className='row'>
@@ -53,7 +71,13 @@ export const ListStudents = () => {
                 return (
                   <tr key={student.id}>
                     <td>
-                      <input id={student.id} type='checkbox' />
+                      <input
+                        id={student.id}
+                        name='emails'
+                        value={student.correo}
+                        type='checkbox'
+                        onChange={(event) => handleCheckbox(event, student)}
+                      />
                     </td>
                     <td>{student.id}</td>
                     <td>{student.id_curso}</td>
@@ -83,7 +107,11 @@ export const ListStudents = () => {
         </div>
       </div>
       <div className='d-flex m-3 mb-4 justify-content-center gap-3'>
-        <button type='button' className='btn btn-primary mb-4'>
+        <button
+          type='button'
+          className='btn btn-primary mb-4'
+          onClick={() => {}}
+        >
           Matricular
         </button>
 
